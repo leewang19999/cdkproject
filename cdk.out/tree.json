@@ -1252,7 +1252,7 @@
                 "instanceType": "t2.micro",
                 "automaticStopTimeMinutes": 30,
                 "description": "Building On AWS Cloud9",
-                "name": "BuildingOnAWS<property object at 0x7f9e3991f9a8>",
+                "name": "BuildingOnAWS<property object at 0x7f5555c29958>",
                 "ownerArn": {
                   "Fn::ImportValue": "edXProjectUser"
                 },
