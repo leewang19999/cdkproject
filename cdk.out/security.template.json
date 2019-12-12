@@ -1,0 +1,191 @@
+{
+  "Resources": {
+    "WebServerRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "ec2.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+          "arn:aws:iam::aws:policy/AmazonRekognitionReadOnlyAccess",
+          "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
+          "arn:aws:iam::aws:policy/AmazonPollyReadOnlyAccess",
+          "arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess"
+        ],
+        "Path": "/",
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "ssm:DescribeParameters"
+                  ],
+                  "Resource": "*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "ssm:GetParameters"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/edx-*"
+                  }
+                }
+              ]
+            },
+            "PolicyName": "SystemsManagerParameters"
+          },
+          {
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents",
+                    "logs:DescribeLogStreams"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:aws:logs::${AWS::Region}:*:*"
+                  }
+                }
+              ]
+            },
+            "PolicyName": "LogRolePolicy"
+          }
+        ],
+        "RoleName": "ec2-webserver-role"
+      },
+      "Metadata": {
+        "aws:cdk:path": "security/WebServerRole"
+      }
+    },
+    "lambdasecuritygroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "HTTP traffic",
+        "GroupName": "labels-lambda-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "FromPort": 0,
+            "IpProtocol": "tcp",
+            "ToPort": 65535
+          }
+        ],
+        "VpcId": {
+          "Fn::ImportValue": "vpc"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security/lambdasecuritygroup"
+      }
+    },
+    "WebSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "HTTP traffic",
+        "GroupName": "web-server-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "FromPort": 0,
+            "IpProtocol": "tcp",
+            "ToPort": 65535
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          }
+        ],
+        "VpcId": {
+          "Fn::ImportValue": "vpc"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security/WebSecurityGroup"
+      }
+    },
+    "DBSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "DB_traffic",
+        "GroupName": "DB-Security-Group",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "FromPort": 0,
+            "IpProtocol": "tcp",
+            "ToPort": 65535
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "FromPort": 3306,
+            "IpProtocol": "tcp",
+            "ToPort": 3306
+          }
+        ],
+        "VpcId": {
+          "Fn::ImportValue": "vpc"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security/DBSG"
+      }
+    }
+  },
+  "Outputs": {
+    "dbsg": {
+      "Description": "DB traffic",
+      "Value": {
+        "Ref": "DBSG"
+      },
+      "Export": {
+        "Name": "DBSG"
+      }
+    },
+    "WebSecurityGroupoutput": {
+      "Description": "WebSecurityGroup",
+      "Value": {
+        "Ref": "WebSecurityGroup"
+      },
+      "Export": {
+        "Name": "WebSecurityGroup"
+      }
+    },
+    "lambdasecuritygroupoutput": {
+      "Description": "lambdasecuritygroup",
+      "Value": {
+        "Ref": "lambdasecuritygroup"
+      },
+      "Export": {
+        "Name": "lambdasecuritygroup"
+      }
+    }
+  }
+}

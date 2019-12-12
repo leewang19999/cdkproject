@@ -1,0 +1,26 @@
+{
+  "Resources": {
+    "cdkprojectbucketEBCDF1F6": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "vtccdkbucket3"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "s3/cdkprojectbucket/Resource"
+      }
+    }
+  },
+  "Outputs": {
+    "sourcebucket": {
+      "Description": "sourcebucket name",
+      "Value": {
+        "Ref": "cdkprojectbucketEBCDF1F6"
+      },
+      "Export": {
+        "Name": "sourcebucket"
+      }
+    }
+  }
+}

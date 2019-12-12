@@ -1,0 +1,148 @@
+{
+  "Parameters": {
+    "Password": {
+      "Type": "String",
+      "Default": "123",
+      "ConstraintDescription": "the password must be between 1 and 41 characters",
+      "Description": "New account password",
+      "MaxLength": 41,
+      "MinLength": 1,
+      "NoEcho": true
+    }
+  },
+  "Resources": {
+    "CFNUser": {
+      "Type": "AWS::IAM::User",
+      "Properties": {
+        "LoginProfile": {
+          "Password": {
+            "Ref": "Password"
+          }
+        },
+        "UserName": "EdXProjectUser"
+      },
+      "Metadata": {
+        "aws:cdk:path": "iam/CFNUser"
+      }
+    },
+    "CFNUserGroup": {
+      "Type": "AWS::IAM::Group",
+      "Metadata": {
+        "aws:cdk:path": "iam/CFNUserGroup"
+      }
+    },
+    "UserToGroupAddition": {
+      "Type": "AWS::IAM::UserToGroupAddition",
+      "Properties": {
+        "GroupName": {
+          "Ref": "CFNUserGroup"
+        },
+        "Users": [
+          {
+            "Ref": "CFNUser"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "iam/UserToGroupAddition"
+      }
+    },
+    "CFNUserPolicies": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Sid": "Sid1",
+              "Effect": "Allow",
+              "Action": [
+                "iam:*",
+                "rds:*",
+                "sns:*",
+                "cloudformation:*",
+                "rekognition:*",
+                "ec2:*",
+                "cognito-idp:*",
+                "sqs:*",
+                "xray:*",
+                "s3:*",
+                "elasticloadbalancing:*",
+                "cloud9:*",
+                "lambda:*",
+                "tag:GetResources",
+                "logs:*",
+                "kms:ListRetirableGrants",
+                "kms:GetKeyPolicy",
+                "kms:ListResourceTags",
+                "kms:ReEncryptFrom",
+                "kms:ListGrants",
+                "kms:GetParametersForImport",
+                "kms:ListKeys",
+                "kms:GetKeyRotationStatus",
+                "kms:ListAliases",
+                "kms:ReEncryptTo",
+                "kms:DescribeKey"
+              ],
+              "Resource": "*"
+            }
+          ]
+        },
+        "PolicyName": "edXProjectPolicy",
+        "Groups": [
+          {
+            "Ref": "CFNUserGroup"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "iam/CFNUserPolicies"
+      }
+    },
+    "CFNKeys": {
+      "Type": "AWS::IAM::AccessKey",
+      "Properties": {
+        "UserName": {
+          "Ref": "CFNUser"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "iam/CFNKeys"
+      }
+    }
+  },
+  "Outputs": {
+    "AccessKeyOutput": {
+      "Description": "AWSAccessKeyId of new user",
+      "Value": {
+        "Ref": "CFNKeys"
+      },
+      "Export": {
+        "Name": "AccessKey"
+      }
+    },
+    "SecretKeyOutput": {
+      "Description": "AWSSecretKey of new user",
+      "Value": {
+        "Fn::GetAtt": [
+          "CFNKeys",
+          "SecretAccessKey"
+        ]
+      },
+      "Export": {
+        "Name": "SecretKey"
+      }
+    },
+    "edXProjectUser": {
+      "Description": "edXProjectUser",
+      "Value": {
+        "Fn::GetAtt": [
+          "CFNUser",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "edXProjectUser"
+      }
+    }
+  }
+}

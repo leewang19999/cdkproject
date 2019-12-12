@@ -1,0 +1,447 @@
+{
+  "Parameters": {
+    "SourceBucket": {
+      "Type": "String",
+      "Default": "default",
+      "Description": "Building on AWS Cognito Stack Modified https://github.com/rosberglinhares/CloudFormationCognitoCustomResources"
+    },
+    "LogoutURL": {
+      "Type": "String",
+      "Default": "http://localhost"
+    },
+    "CallbackURL": {
+      "Type": "String",
+      "Default": "http://localhost/callback"
+    },
+    "AppDomain": {
+      "Type": "String",
+      "Default": "default"
+    },
+    "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3Bucket1A02CCD6": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197\""
+    },
+    "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3VersionKeyD180C7BE": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197\""
+    },
+    "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197ArtifactHashE8CA7F84": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197\""
+    }
+  },
+  "Resources": {
+    "CognitoSNSPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": {
+            "Effect": "Allow",
+            "Action": [
+              "sns:publish"
+            ],
+            "Resource": "*"
+          }
+        },
+        "Description": "Managed policy to allow Amazon Cognito to access SNS"
+      },
+      "Metadata": {
+        "aws:cdk:path": "cognito/CognitoSNSPolicy"
+      }
+    },
+    "SNSRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "sts:AssumeRole"
+              ],
+              "Principal": {
+                "Service": [
+                  "cognito-idp.amazonaws.com"
+                ]
+              }
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          {
+            "Ref": "CognitoSNSPolicy"
+          }
+        ],
+        "RoleName": "SNSRole"
+      },
+      "DependsOn": [
+        "CognitoSNSPolicy"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "cognito/SNSRole"
+      }
+    },
+    "UserPool": {
+      "Type": "AWS::Cognito::UserPool",
+      "Properties": {
+        "AliasAttributes": [
+          "email",
+          "phone_number"
+        ],
+        "AutoVerifiedAttributes": [
+          "email"
+        ],
+        "EmailVerificationMessage": "Hi, Your verification code is <br/>{####}\n",
+        "EmailVerificationSubject": "EDX Email Verification",
+        "MfaConfiguration": "OPTIONAL",
+        "Policies": {
+          "PasswordPolicy": {
+            "MinimumLength": 8,
+            "RequireLowercase": true,
+            "RequireNumbers": true,
+            "RequireSymbols": true,
+            "RequireUppercase": true
+          }
+        },
+        "Schema": [
+          {
+            "AttributeDataType": "String",
+            "Mutable": false,
+            "Name": "nickname",
+            "Required": true
+          },
+          {
+            "AttributeDataType": "String",
+            "Mutable": false,
+            "Name": "email",
+            "Required": true
+          },
+          {
+            "AttributeDataType": "String",
+            "Mutable": false,
+            "Name": "phone_number",
+            "Required": true
+          }
+        ],
+        "SmsConfiguration": {
+          "ExternalId": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Ref": "AWS::StackName"
+                },
+                "-external"
+              ]
+            ]
+          },
+          "SnsCallerArn": {
+            "Fn::GetAtt": [
+              "SNSRole",
+              "Arn"
+            ]
+          }
+        },
+        "UserPoolName": "photos-pool"
+      },
+      "Metadata": {
+        "aws:cdk:path": "cognito/UserPool"
+      }
+    },
+    "UserPoolClient": {
+      "Type": "AWS::Cognito::UserPoolClient",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "UserPool"
+        },
+        "ClientName": "WebsiteClient",
+        "GenerateSecret": true
+      },
+      "Metadata": {
+        "aws:cdk:path": "cognito/UserPoolClient"
+      }
+    },
+    "CustomResourceRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "logs:CreateLogGroup",
+                  "Resource": "arn:aws:logs:*:*:*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "logs:CreateLogStream",
+                  "Resource": "arn:aws:logs:*:*:*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "logs:PutLogEvents",
+                  "Resource": "arn:aws:logs:*:*:*"
+                }
+              ]
+            },
+            "PolicyName": "writeCloudWatchLogs"
+          },
+          {
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "cognito-idp:UpdateUserPoolClient",
+                  "Resource": "arn:aws:cognito-idp:*:*:userpool/*"
+                }
+              ]
+            },
+            "PolicyName": "updateUserPoolClient"
+          },
+          {
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "cognito-idp:CreateUserPoolDomain",
+                  "Resource": "arn:aws:cognito-idp:*:*:userpool/*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "cognito-idp:DeleteUserPoolDomain",
+                  "Resource": "arn:aws:cognito-idp:*:*:userpool/*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "cognito-idp:DescribeUserPoolDomain",
+                  "Resource": "*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "cognito-idp:DescribeUserPoolClient",
+                  "Resource": "*"
+                }
+              ]
+            },
+            "PolicyName": "manageUserPoolDomain"
+          },
+          {
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "lambda:InvokeFunction",
+                  "Resource": "arn:aws:lambda:*:*:function:*"
+                }
+              ]
+            },
+            "PolicyName": "invokeLambdaFunction"
+          }
+        ],
+        "RoleName": "cognito-resource-role"
+      },
+      "Metadata": {
+        "aws:cdk:path": "cognito/CustomResourceRole"
+      }
+    },
+    "CognitoUserPoolClientClientSettingsLambdaE6EE699D": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3Bucket1A02CCD6"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3VersionKeyD180C7BE"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3VersionKeyD180C7BE"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Handler": "cognitouserpool.async",
+        "Role": {
+          "Fn::GetAtt": [
+            "CustomResourceRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs8.10"
+      },
+      "Metadata": {
+        "aws:cdk:path": "cognito/CognitoUserPoolClientClientSettingsLambda/Resource",
+        "aws:asset:path": "asset.8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197",
+        "aws:asset:property": "Code"
+      }
+    },
+    "CognitoUserPoolClientClientSettings": {
+      "Type": "AWS::CloudFormation::CustomResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "CognitoUserPoolClientClientSettingsLambdaE6EE699D",
+            "Arn"
+          ]
+        },
+        "UserPoolId": {
+          "Ref": "UserPool"
+        },
+        "UserPoolClientId": {
+          "Ref": "UserPoolClient"
+        },
+        "AppDomain": {
+          "Ref": "AppDomain"
+        },
+        "SupportedIdentityProviders": [
+          "COGNITO"
+        ],
+        "CallbackURL": {
+          "Ref": "CallbackURL"
+        },
+        "LogoutURL": {
+          "Ref": "LogoutURL"
+        },
+        "AllowedOAuthFlowsUserPoolClient": true,
+        "AllowedOAuthFlows": [
+          "code"
+        ],
+        "AllowedOAuthScopes": [
+          "openid"
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "cognito/CognitoUserPoolClientClientSettings/Default"
+      }
+    },
+    "CognitoIdPool": {
+      "Type": "AWS::Cognito::IdentityPool",
+      "Properties": {
+        "AllowUnauthenticatedIdentities": false,
+        "CognitoIdentityProviders": [
+          {
+            "ClientId": {
+              "Ref": "UserPoolClient"
+            },
+            "ProviderName": {
+              "Fn::GetAtt": [
+                "UserPool",
+                "ProviderName"
+              ]
+            }
+          }
+        ],
+        "IdentityPoolName": "edxcognitoidpool"
+      },
+      "Metadata": {
+        "aws:cdk:path": "cognito/CognitoIdPool"
+      }
+    }
+  },
+  "Outputs": {
+    "CognitoUserPoolIdOutput": {
+      "Description": "The Pool ID of the Cognito User Pool",
+      "Value": {
+        "Ref": "UserPool"
+      },
+      "Export": {
+        "Name": "CognitoUserPoolId"
+      }
+    },
+    "CognitoUserPoolProviderURLOutput": {
+      "Description": "The Pool ProviderURL of the Cognito User Pool",
+      "Value": {
+        "Fn::GetAtt": [
+          "UserPool",
+          "ProviderURL"
+        ]
+      },
+      "Export": {
+        "Name": "CognitoUserPoolProviderURL"
+      }
+    },
+    "CognitoUserPoolArnOutput": {
+      "Description": "The Pool Arn of the Cognito User Pool",
+      "Value": {
+        "Fn::GetAtt": [
+          "UserPool",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "CognitoUserPoolArn"
+      }
+    },
+    "CognitoUserPoolClientIdOutput": {
+      "Description": "The App Client ID ",
+      "Value": {
+        "Ref": "UserPoolClient"
+      },
+      "Export": {
+        "Name": "CognitoUserPoolClientId"
+      }
+    },
+    "ClientSecretOutput": {
+      "Description": "The Client Secret ",
+      "Value": {
+        "Fn::GetAtt": [
+          "CognitoUserPoolClientClientSettings",
+          "ClientSecret"
+        ]
+      },
+      "Export": {
+        "Name": "ClientSecret"
+      }
+    }
+  }
+}

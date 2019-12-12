@@ -1,0 +1,174 @@
+{
+  "Parameters": {
+    "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
+      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+      "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+    }
+  },
+  "Resources": {
+    "cfnlog": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "RetentionInDays": 7
+      },
+      "Metadata": {
+        "aws:cdk:path": "web/cfnlog"
+      }
+    },
+    "Webserver1": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::ImportValue": "PrivateSubnet1az"
+        },
+        "IamInstanceProfile": "",
+        "ImageId": {
+          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+        },
+        "InstanceType": "t3.micro",
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": true,
+            "DeviceIndex": "0",
+            "GroupSet": [
+              {
+                "Fn::ImportValue": "WebSecurityGroup"
+              }
+            ],
+            "SubnetId": {
+              "Fn::ImportValue": "PrivateSubnet1"
+            }
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Ex3WebServer"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "web/Webserver1",
+        "AWS::CloudFormation::Init": {
+          "config": {
+            "commands": {
+              "test": {
+                "command": "echo {core.Aws.STACK_NAME} test",
+                "env": {
+                  "STACK_NAME": "{core.Aws.STACK_NAME}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Webserver2": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::ImportValue": "PrivateSubnet2az"
+        },
+        "ImageId": {
+          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+        },
+        "InstanceType": "t3.micro",
+        "KeyName": "####",
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": true,
+            "DeviceIndex": "0",
+            "GroupSet": [
+              {
+                "Fn::ImportValue": "WebSecurityGroup"
+              }
+            ],
+            "SubnetId": {
+              "Fn::ImportValue": "PrivateSubnet2"
+            }
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Ex3WebServer"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "web/Webserver2",
+        "AWS::CloudFormation::Init": {
+          "config": {
+            "commands": {
+              "test": {
+                "command": "echo {core.Aws.STACK_NAME} test",
+                "env": {
+                  "STACK_NAME": "{core.Aws.STACK_NAME}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "DefaultTargetGroup": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "HealthCheckEnabled": true,
+        "HealthCheckIntervalSeconds": 15,
+        "HealthCheckPath": "/",
+        "HealthCheckProtocol": "HTTP",
+        "HealthCheckTimeoutSeconds": 10,
+        "HealthyThresholdCount": 2,
+        "Matcher": {
+          "HttpCode": "200-299"
+        },
+        "Port": 80,
+        "Protocol": "HTTP",
+        "TargetGroupAttributes": [
+          {
+            "Key": "deregistration_delay.timeout_seconds",
+            "Value": "30"
+          }
+        ],
+        "Targets": [
+          {
+            "Id": "Webserver1.ref",
+            "Port": 80
+          },
+          {
+            "Id": "Webserver2.ref",
+            "Port": 80
+          }
+        ],
+        "VpcId": {
+          "Fn::ImportValue": "vpc"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "web/DefaultTargetGroup"
+      }
+    },
+    "HttpListener": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "DefaultTargetGroup"
+            },
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Fn::ImportValue": "LoadBalancerArn"
+        },
+        "Port": 80,
+        "Protocol": "HTTP"
+      },
+      "Metadata": {
+        "aws:cdk:path": "web/HttpListener"
+      }
+    }
+  }
+}

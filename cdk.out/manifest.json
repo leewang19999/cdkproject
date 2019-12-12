@@ -1,0 +1,2157 @@
+{
+  "version": "1.16.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "iam": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "iam.template.json"
+      },
+      "metadata": {
+        "/iam/Password": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Password",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/CFNUser": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CFNUser",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/CFNUserGroup": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CFNUserGroup",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/UserToGroupAddition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserToGroupAddition",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/CFNUserPolicies": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CFNUserPolicies",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/CFNKeys": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CFNKeys",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/AccessKeyOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AccessKeyOutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/SecretKeyOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecretKeyOutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/iam/edXProjectUser": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "edXProjectUser",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "vpc": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "vpc.template.json"
+      },
+      "metadata": {
+        "/vpc/VPC": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/InternetGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InternetGateway",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/AttachGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AttachGateway",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/EIP1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EIP1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateSubnet1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateSubnet1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicSubnet1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicSubnet1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/NAT1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "NAT1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateRouteTable1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateRouteTable1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateRoute1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateRoute1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateRouteAssociation1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateRouteAssociation1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicRouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicRouteTable",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicDefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicDefaultRoute",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicRouteAssociation1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicRouteAssociation1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/EIP2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EIP2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateSubnet2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateSubnet2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicSubnet2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicSubnet2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/NAT2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "NAT2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateRouteTable2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateRouteTable2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateRoute2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateRoute2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateRouteAssociation2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateRouteAssociation2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicRouteAssociation2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicRouteAssociation2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/vpcoutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "vpcoutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicSubnet1output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicSubnet1output",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PublicSubnet2output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PublicSubnet2output",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateSubnet1output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateSubnet1output",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/PrivateSubnet2output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PrivateSubnet2output",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/Private1az": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Private1az",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/vpc/Private2az": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Private2az",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "security": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "security.template.json"
+      },
+      "metadata": {
+        "/security/WebServerRole": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebServerRole",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/security/lambdasecuritygroup": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdasecuritygroup",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/security/WebSecurityGroup": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebSecurityGroup",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/security/DBSG": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DBSG",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/security/dbsg": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbsg",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/security/WebSecurityGroupoutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebSecurityGroupoutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/security/lambdasecuritygroup_output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdasecuritygroupoutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "dbstack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "dbstack.template.json"
+      },
+      "metadata": {
+        "/dbstack/DBPassword": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DBPassword",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/dbstack/dbsubnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbsubnet",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/dbstack/RDSCluster": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSCluster",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/dbstack/dbendpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbendpoint",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/dbstack/dbname": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbname",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/dbstack/dbpassword": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbpassword",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "s3": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "s3.template.json"
+      },
+      "metadata": {
+        "/s3/cdkprojectbucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdkprojectbucketEBCDF1F6",
+            "trace": [
+              "new Bucket (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3/lib/bucket.js:366:26)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/s3/sourcebucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sourcebucket",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "web": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "web.template.json"
+      },
+      "metadata": {
+        "/web/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
+            "trace": [
+              "Function.fromStringParameterAttributes (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-ssm/lib/parameter.js:104:15)",
+              "Function.valueForTypedStringParameter (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-ssm/lib/parameter.js:171:21)",
+              "AmazonLinuxImage.getImage (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-ec2/lib/machine-image.js:64:41)",
+              "_wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7582:51)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "ret._ensureSync (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7582:25)",
+              "Kernel._ensureSync (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8178:20)",
+              "Kernel.invoke (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7581:26)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/web/cfnlog": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cfnlog",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/web/Webserver1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Webserver1",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/web/Webserver2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Webserver2",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/web/DefaultTargetGroup": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DefaultTargetGroup",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/web/HttpListener": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HttpListener",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "cdn": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "cdn.template.json"
+      },
+      "metadata": {
+        "/cdn/Api": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Api",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/WebpageCDN": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebpageCDN",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/LoadBalancer": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancer",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/CloudWatchRole": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudWatchRole",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Account",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/ApiResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiResource",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/rootmethod": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootmethod",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/ProxyMehod": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProxyMehod",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/Deployment": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Deployment",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/ProdStage": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProdStage",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/alb_dns_name": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "albdnsname",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/domain_name": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "domainname",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cdn/LoadBalancerArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancerArn",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "cloud9": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "cloud9.template.json"
+      },
+      "metadata": {
+        "/cloud9": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366",
+              "id": "bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366",
+              "packaging": "zip",
+              "sourceHash": "bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366",
+              "s3BucketParameter": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3BucketE9B849B5",
+              "s3KeyParameter": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3VersionKeyAC33E112",
+              "artifactHashParameter": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366ArtifactHash7E06E43E"
+            },
+            "trace": [
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:345:23)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/newcloud9": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "newcloud9",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/LambdaExecutionRole": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaExecutionRole",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/lambdafunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdafunctionDEA6E674",
+            "trace": [
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:69:26)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/AssetParameters/bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3BucketE9B849B5",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:11:36)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:335:22)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/AssetParameters/bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3VersionKeyAC33E112",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:15:35)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:335:22)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/AssetParameters/bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366ArtifactHash7E06E43E",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:19:38)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:335:22)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/CustomResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResource",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/newcloud9output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "newcloud9output",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cloud9/LambdaExecutionRoleoutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaExecutionRoleoutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "snssqs": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "snssqs.template.json"
+      },
+      "metadata": {
+        "/snssqs/labelslambda": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "labelslambda",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/snssqs/uploadsqs": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "uploadsqs",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/snssqs/uploadsnstopic": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "uploadsnstopic",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/snssqs/images3bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "images3bucket",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/snssqs/images3bucketpermission": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "images3bucketpermission",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/snssqs/uploadtopicpolicy": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "uploadtopicpolicy",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/snssqs/queuepolicy": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "queuepolicy",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    },
+    "cognito": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/us-east-1",
+      "properties": {
+        "templateFile": "cognito.template.json"
+      },
+      "metadata": {
+        "/cognito": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197",
+              "id": "8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197",
+              "packaging": "zip",
+              "sourceHash": "8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197",
+              "s3BucketParameter": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3Bucket1A02CCD6",
+              "s3KeyParameter": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3VersionKeyD180C7BE",
+              "artifactHashParameter": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197ArtifactHashE8CA7F84"
+            },
+            "trace": [
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:345:23)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/SourceBucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SourceBucket",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/LogoutURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogoutURL",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CallbackURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CallbackURL",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/AppDomain": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppDomain",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoSNSPolicy": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoSNSPolicy",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/SNSRole": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SNSRole",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/UserPool": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPool",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/UserPoolClient": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolClient",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CustomResourceRole": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceRole",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoUserPoolClientClientSettingsLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoUserPoolClientClientSettingsLambdaE6EE699D",
+            "trace": [
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:69:26)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/AssetParameters/8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3Bucket1A02CCD6",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:11:36)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:335:22)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/AssetParameters/8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3VersionKeyD180C7BE",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:15:35)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:335:22)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/AssetParameters/8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197ArtifactHashE8CA7F84",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:19:38)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/core/lib/stack.js:335:22)",
+              "new Asset (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:27:32)",
+              "AssetCode.bind (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-lambda/lib/function.js:67:33)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoUserPoolClientClientSettings/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoUserPoolClientClientSettings",
+            "trace": [
+              "new CustomResource (/tmp/jsii-kernel-cVyXxo/node_modules/@aws-cdk/aws-cloudformation/lib/custom-resource.js:56:25)",
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoIdPool": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoIdPool",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoUserPoolIdOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoUserPoolIdOutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoUserPoolProviderURLOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoUserPoolProviderURLOutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoUserPoolArnOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoUserPoolArnOutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/CognitoUserPoolClientIdOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CognitoUserPoolClientIdOutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/cognito/ClientSecretOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ClientSecretOutput",
+            "trace": [
+              "obj._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:49)",
+              "Kernel._wrapSandboxCode (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:8202:20)",
+              "Kernel._create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7749:26)",
+              "Kernel.create (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7503:21)",
+              "KernelHost.processRequest (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7293:28)",
+              "KernelHost.run (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7233:14)",
+              "Immediate.setImmediate [as _onImmediate] (/home/ec2-user/environment/cdkpj/.env/lib/python3.6/dist-packages/jsii/_embedded/jsii/jsii-runtime.js:7236:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "libraries": {
+      "@aws-cdk/cx-api": "1.18.0",
+      "@aws-cdk/core": "1.18.0",
+      "@aws-cdk/region-info": "1.18.0",
+      "@aws-cdk/aws-iam": "1.18.0",
+      "@aws-cdk/aws-events": "1.18.0",
+      "@aws-cdk/aws-kms": "1.18.0",
+      "@aws-cdk/aws-s3": "1.18.0",
+      "@aws-cdk/aws-cloudwatch": "1.18.0",
+      "@aws-cdk/aws-ssm": "1.18.0",
+      "@aws-cdk/aws-ec2": "1.18.0",
+      "@aws-cdk/aws-logs": "1.18.0",
+      "@aws-cdk/assets": "1.18.0",
+      "@aws-cdk/aws-s3-assets": "1.18.0",
+      "@aws-cdk/aws-sqs": "1.18.0",
+      "@aws-cdk/aws-lambda": "1.18.0",
+      "@aws-cdk/aws-sns": "1.18.0",
+      "@aws-cdk/aws-cloudformation": "1.18.0",
+      "@aws-cdk/aws-route53": "1.18.0",
+      "@aws-cdk/aws-certificatemanager": "1.18.0",
+      "@aws-cdk/aws-elasticloadbalancingv2": "1.18.0",
+      "@aws-cdk/aws-cloudfront": "1.18.0",
+      "@aws-cdk/aws-apigateway": "1.18.0",
+      "@aws-cdk/aws-cloud9": "1.18.0",
+      "@aws-cdk/aws-sam": "1.18.0",
+      "@aws-cdk/aws-secretsmanager": "1.18.0",
+      "@aws-cdk/aws-rds": "1.18.0",
+      "@aws-cdk/aws-cognito": "1.18.0",
+      "jsii-runtime": "Python/3.6.8"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "Resources": {
+    "newcloud9": {
+      "Type": "AWS::Cloud9::EnvironmentEC2",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "AutomaticStopTimeMinutes": 30,
+        "Description": "Building On AWS Cloud9",
+        "Name": "BuildingOnAWS<property object at 0x7f9e3991f9a8>",
+        "OwnerArn": {
+          "Fn::ImportValue": "edXProjectUser"
+        },
+        "SubnetId": {
+          "Fn::ImportValue": "PrivateSubnet1output"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cloud9/newcloud9"
+      }
+    },
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "lambda.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+          },
+          "Path": "/",
+          "Policies": {
+            "PolicyName": "root",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": "arn:aws:logs:*:*:*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "ec2:Describe*",
+                  "Resource": "*"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cloud9/LambdaExecutionRole"
+      }
+    },
+    "lambdafunctionDEA6E674": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3BucketE9B849B5"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3VersionKeyAC33E112"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3VersionKeyAC33E112"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaExecutionRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs8.10",
+        "Timeout": 30
+      },
+      "Metadata": {
+        "aws:cdk:path": "cloud9/lambdafunction/Resource",
+        "aws:asset:path": "asset.bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366",
+        "aws:asset:property": "Code"
+      }
+    },
+    "CustomResource": {
+      "Type": "Custom::CustomResource",
+      "Properties": {
+        "service_token": {
+          "Fn::GetAtt": [
+            "lambdafunctionDEA6E674",
+            "Arn"
+          ]
+        },
+        "EdxProjectCloud9": {
+          "Ref": "newcloud9"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cloud9/CustomResource"
+      }
+    }
+  },
+  "Parameters": {
+    "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3BucketE9B849B5": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366\""
+    },
+    "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3VersionKeyAC33E112": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366\""
+    },
+    "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366ArtifactHash7E06E43E": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366\""
+    }
+  },
+  "Outputs": {
+    "newcloud9output": {
+      "Description": "newcloud9",
+      "Value": {
+        "Fn::GetAtt": [
+          "newcloud9",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "newcloud9"
+      }
+    },
+    "LambdaExecutionRoleoutput": {
+      "Description": "LambdaExecutionRole arn",
+      "Value": {
+        "Fn::GetAtt": [
+          "LambdaExecutionRole",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "LambdaExecutionRolearn"
+      }
+    }
+  }
+}

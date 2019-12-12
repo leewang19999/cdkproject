@@ -1,0 +1,88 @@
+{
+  "Parameters": {
+    "DBPassword": {
+      "Type": "String",
+      "Default": "Password",
+      "ConstraintDescription": "the password must be between 1 and 41 characters",
+      "Description": "New account and RDS password",
+      "MaxLength": 41,
+      "MinLength": 1,
+      "NoEcho": true
+    }
+  },
+  "Resources": {
+    "dbsubnet": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "MyDBSubnetGroup",
+        "SubnetIds": [
+          {
+            "Fn::ImportValue": "PrivateSubnet1"
+          },
+          {
+            "Fn::ImportValue": "PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "dbstack/dbsubnet"
+      }
+    },
+    "RDSCluster": {
+      "Type": "AWS::RDS::DBCluster",
+      "Properties": {
+        "Engine": "aurora",
+        "DatabaseName": "Photos",
+        "DBClusterIdentifier": "edx-photos-db",
+        "EngineMode": "serverless",
+        "MasterUsername": "master",
+        "MasterUserPassword": {
+          "Ref": "DBPassword"
+        },
+        "ScalingConfiguration": {
+          "AutoPause": true,
+          "MaxCapacity": 4,
+          "MinCapacity": 2
+        },
+        "VpcSecurityGroupIds": [
+          {
+            "Fn::ImportValue": "DBSG"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "dbstack/RDSCluster"
+      }
+    }
+  },
+  "Outputs": {
+    "dbendpoint": {
+      "Description": "MyDB Endpoint",
+      "Value": {
+        "Fn::GetAtt": [
+          "RDSCluster",
+          "Endpoint.Port"
+        ]
+      },
+      "Export": {
+        "Name": "DBEndpoint"
+      }
+    },
+    "dbname": {
+      "Description": "MyDB name",
+      "Value": "Photos",
+      "Export": {
+        "Name": "DBname"
+      }
+    },
+    "dbpassword": {
+      "Description": "dbpassword",
+      "Value": {
+        "Ref": "DBPassword"
+      },
+      "Export": {
+        "Name": "dbpassword"
+      }
+    }
+  }
+}

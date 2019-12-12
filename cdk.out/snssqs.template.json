@@ -1,0 +1,204 @@
+{
+  "Resources": {
+    "labelslambda": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {},
+        "Handler": "lambda_function.lambda_handler",
+        "Role": {
+          "Fn::ImportValue": "LambdaExecutionRolearn"
+        },
+        "Runtime": "python3.6",
+        "Environment": {
+          "Variables": {
+            "DATABASE_HOST": {
+              "Fn::ImportValue": "dbendpoint"
+            },
+            "DATABASE_USER": "web_user",
+            "DATABASE_PASSWORD": {
+              "Fn::ImportValue": "dbpassword"
+            },
+            "DATABASE_DB_NAME": {
+              "Fn::ImportValue": "DBname"
+            }
+          }
+        },
+        "Timeout": 120,
+        "TracingConfig": {
+          "Mode": "Active"
+        },
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            {
+              "Fn::ImportValue": "lambdasecuritygroup"
+            }
+          ],
+          "SubnetIds": [
+            {
+              "Fn::ImportValue": "PrivateSubnet1output"
+            },
+            {
+              "Fn::ImportValue": "PrivateSubnet2output"
+            }
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "snssqs/labelslambda"
+      }
+    },
+    "uploadsqs": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "uploads-queue"
+      },
+      "Metadata": {
+        "aws:cdk:path": "snssqs/uploadsqs"
+      }
+    },
+    "uploadsnstopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": "uploads-topic",
+        "Subscription": [
+          {
+            "Endpoint": {
+              "Fn::GetAtt": [
+                "uploadsqs",
+                "Arn"
+              ]
+            },
+            "Protocol": "sqs"
+          },
+          {
+            "Endpoint": {
+              "Fn::GetAtt": [
+                "labelslambda",
+                "Arn"
+              ]
+            },
+            "Protocol": "lambda"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "snssqs/uploadsnstopic"
+      }
+    },
+    "images3bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "imagebucketsns${AWS::AccountId}",
+        "NotificationConfiguration": {}
+      },
+      "Metadata": {
+        "aws:cdk:path": "snssqs/images3bucket"
+      }
+    },
+    "images3bucketpermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "labelslambda",
+            "Arn"
+          ]
+        },
+        "Principal": "sns.amazonaws.com",
+        "SourceArn": {
+          "Ref": "uploadsnstopic"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "snssqs/images3bucketpermission"
+      }
+    },
+    "uploadtopicpolicy": {
+      "Type": "AWS::SNS::TopicPolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Id": "QueuePolicy",
+          "Statement": [
+            {
+              "Sid": "Allow-S3-Publish",
+              "Effect": "Allow",
+              "Principal": [
+                {
+                  "AWS": "*"
+                }
+              ],
+              "Action": "SNS:Publish",
+              "Resource": {
+                "Ref": "uploadsnstopic"
+              },
+              "Condition": {
+                "ArnLike": {
+                  "aws:SourceArn": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:aws:s3:::imagebucketsns",
+                          {
+                            "Ref": "AWS::AccountId"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "Topics": [
+          {
+            "Ref": "uploadsnstopic"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "snssqs/uploadtopicpolicy"
+      }
+    },
+    "queuepolicy": {
+      "Type": "AWS::SQS::QueuePolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Id": "QueuePolicy",
+          "Statement": [
+            {
+              "Sid": "Allow-SendMessage-To-Queues-From-SNS-Topic",
+              "Effect": "Allow",
+              "Principal": [
+                {
+                  "AWS": "*"
+                }
+              ],
+              "Action": "SQS:SendMessage",
+              "Resource": "*",
+              "Condition": {
+                "ArnEquals": {
+                  "aws:SourceArn": {
+                    "Ref": "uploadsnstopic"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "Queues": [
+          {
+            "Ref": "uploadsqs"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "snssqs/queuepolicy"
+      }
+    }
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "Resources": {
+    "Api": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "BinaryMediaTypes": [
+          "*/*"
+        ],
+        "Name": "WebProxyApi"
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/Api"
+      }
+    },
+    "WebpageCDN": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Enabled": true
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/WebpageCDN"
+      }
+    },
+    "LoadBalancer": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "LoadBalancerAttributes": [
+          {
+            "Key": "idle_timeout.timeout_seconds",
+            "Value": "50"
+          }
+        ],
+        "SecurityGroups": [
+          {
+            "Fn::ImportValue": "WebSecurityGroupoutput"
+          }
+        ],
+        "Subnets": [
+          {
+            "Fn::ImportValue": "PublicSubnet1output"
+          },
+          {
+            "Fn::ImportValue": "PublicSubnet2output"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/LoadBalancer"
+      }
+    },
+    "CloudWatchRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "apigateway.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+          "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess"
+        ],
+        "Path": "/"
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/CloudWatchRole"
+      }
+    },
+    "Account": {
+      "Type": "AWS::ApiGateway::Account",
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
+            "CloudWatchRole",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/Account"
+      }
+    },
+    "ApiResource": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "Api",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "{proxy+}",
+        "RestApiId": {
+          "Ref": "Api"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/ApiResource"
+      }
+    },
+    "rootmethod": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "ANY",
+        "ResourceId": {
+          "Fn::GetAtt": [
+            "Api",
+            "RootResourceId"
+          ]
+        },
+        "RestApiId": {
+          "Ref": "Api"
+        },
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200"
+            }
+          ],
+          "PassthroughBehavior": "WHEN_NO_MATCH",
+          "Type": "HTTP_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "http://",
+                {
+                  "Fn::GetAtt": [
+                    "LoadBalancer",
+                    "DNSName"
+                  ]
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/rootmethod"
+      }
+    },
+    "ProxyMehod": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "ANY",
+        "ResourceId": {
+          "Ref": "ApiResource"
+        },
+        "RestApiId": {
+          "Ref": "Api"
+        },
+        "Integration": {
+          "CacheKeyParameters": [
+            "method.request.path.proxy"
+          ],
+          "IntegrationHttpMethod": "ANY",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200"
+            }
+          ],
+          "PassthroughBehavior": "WHEN_NO_MATCH",
+          "RequestParameters": {
+            "integration.request.path.proxy": "method.request.path.prxy"
+          },
+          "Type": "HTTP_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "http://",
+                {
+                  "Fn::GetAtt": [
+                    "LoadBalancer",
+                    "DNSName"
+                  ]
+                },
+                "/{proxy}"
+              ]
+            ]
+          }
+        },
+        "RequestParameters": {
+          "method.request.path.proxy": true
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/ProxyMehod"
+      }
+    },
+    "Deployment": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "Api"
+        }
+      },
+      "DependsOn": [
+        "ProxyMehod",
+        "rootmethod"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "cdn/Deployment"
+      }
+    },
+    "ProdStage": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "Api"
+        },
+        "DeploymentId": {
+          "Ref": "Deployment"
+        },
+        "Description": "Prod Stage",
+        "StageName": "Prod",
+        "TracingEnabled": true
+      },
+      "Metadata": {
+        "aws:cdk:path": "cdn/ProdStage"
+      }
+    }
+  },
+  "Outputs": {
+    "albdnsname": {
+      "Description": "ALB DNS NAME",
+      "Value": {
+        "Fn::GetAtt": [
+          "LoadBalancer",
+          "DNSName"
+        ]
+      }
+    },
+    "domainname": {
+      "Description": "Webpage CloudFront Domain Name",
+      "Value": {
+        "Fn::GetAtt": [
+          "WebpageCDN",
+          "DomainName"
+        ]
+      }
+    },
+    "LoadBalancerArn": {
+      "Value": {
+        "Ref": "LoadBalancer"
+      }
+    }
+  }
+}

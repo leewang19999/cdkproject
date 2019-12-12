@@ -1,0 +1,2057 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "iam": {
+        "id": "iam",
+        "path": "iam",
+        "children": {
+          "Password": {
+            "id": "Password",
+            "path": "iam/Password"
+          },
+          "CFNUser": {
+            "id": "CFNUser",
+            "path": "iam/CFNUser",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::User",
+              "aws:cdk:cloudformation:props": {
+                "loginProfile": {
+                  "password": {
+                    "Ref": "Password"
+                  }
+                },
+                "userName": "EdXProjectUser"
+              }
+            }
+          },
+          "CFNUserGroup": {
+            "id": "CFNUserGroup",
+            "path": "iam/CFNUserGroup",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::Group",
+              "aws:cdk:cloudformation:props": {}
+            }
+          },
+          "UserToGroupAddition": {
+            "id": "UserToGroupAddition",
+            "path": "iam/UserToGroupAddition",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::UserToGroupAddition",
+              "aws:cdk:cloudformation:props": {
+                "groupName": {
+                  "Ref": "CFNUserGroup"
+                },
+                "users": [
+                  {
+                    "Ref": "CFNUser"
+                  }
+                ]
+              }
+            }
+          },
+          "CFNUserPolicies": {
+            "id": "CFNUserPolicies",
+            "path": "iam/CFNUserPolicies",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+              "aws:cdk:cloudformation:props": {
+                "policyDocument": {
+                  "Statement": [
+                    {
+                      "Sid": "Sid1",
+                      "Effect": "Allow",
+                      "Action": [
+                        "iam:*",
+                        "rds:*",
+                        "sns:*",
+                        "cloudformation:*",
+                        "rekognition:*",
+                        "ec2:*",
+                        "cognito-idp:*",
+                        "sqs:*",
+                        "xray:*",
+                        "s3:*",
+                        "elasticloadbalancing:*",
+                        "cloud9:*",
+                        "lambda:*",
+                        "tag:GetResources",
+                        "logs:*",
+                        "kms:ListRetirableGrants",
+                        "kms:GetKeyPolicy",
+                        "kms:ListResourceTags",
+                        "kms:ReEncryptFrom",
+                        "kms:ListGrants",
+                        "kms:GetParametersForImport",
+                        "kms:ListKeys",
+                        "kms:GetKeyRotationStatus",
+                        "kms:ListAliases",
+                        "kms:ReEncryptTo",
+                        "kms:DescribeKey"
+                      ],
+                      "Resource": "*"
+                    }
+                  ]
+                },
+                "policyName": "edXProjectPolicy",
+                "groups": [
+                  {
+                    "Ref": "CFNUserGroup"
+                  }
+                ]
+              }
+            }
+          },
+          "CFNKeys": {
+            "id": "CFNKeys",
+            "path": "iam/CFNKeys",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::AccessKey",
+              "aws:cdk:cloudformation:props": {
+                "userName": {
+                  "Ref": "CFNUser"
+                }
+              }
+            }
+          },
+          "AccessKeyOutput": {
+            "id": "AccessKeyOutput",
+            "path": "iam/AccessKeyOutput"
+          },
+          "SecretKeyOutput": {
+            "id": "SecretKeyOutput",
+            "path": "iam/SecretKeyOutput"
+          },
+          "edXProjectUser": {
+            "id": "edXProjectUser",
+            "path": "iam/edXProjectUser"
+          }
+        }
+      },
+      "vpc": {
+        "id": "vpc",
+        "path": "vpc",
+        "children": {
+          "VPC": {
+            "id": "VPC",
+            "path": "vpc/VPC",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
+              "aws:cdk:cloudformation:props": {
+                "cidrBlock": "10.1.0.0/16",
+                "enableDnsHostnames": true,
+                "enableDnsSupport": true,
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-build-aws-vpc"
+                  }
+                ]
+              }
+            }
+          },
+          "InternetGateway": {
+            "id": "InternetGateway",
+            "path": "vpc/InternetGateway",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
+              "aws:cdk:cloudformation:props": {
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-igw"
+                  }
+                ]
+              }
+            }
+          },
+          "AttachGateway": {
+            "id": "AttachGateway",
+            "path": "vpc/AttachGateway",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
+              "aws:cdk:cloudformation:props": {
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "internetGatewayId": {
+                  "Ref": "InternetGateway"
+                }
+              }
+            }
+          },
+          "EIP1": {
+            "id": "EIP1",
+            "path": "vpc/EIP1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
+              "aws:cdk:cloudformation:props": {
+                "domain": "vpc"
+              }
+            }
+          },
+          "PrivateSubnet1": {
+            "id": "PrivateSubnet1",
+            "path": "vpc/PrivateSubnet1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+              "aws:cdk:cloudformation:props": {
+                "cidrBlock": "10.1.3.0/24",
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "availabilityZone": {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::GetAZs": {
+                        "Ref": "AWS::Region"
+                      }
+                    }
+                  ]
+                },
+                "tags": [
+                  {
+                    "key": "name",
+                    "value": "edx-subnet-private-a"
+                  }
+                ]
+              }
+            }
+          },
+          "PublicSubnet1": {
+            "id": "PublicSubnet1",
+            "path": "vpc/PublicSubnet1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+              "aws:cdk:cloudformation:props": {
+                "cidrBlock": "10.1.1.0/24",
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "availabilityZone": {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::GetAZs": {
+                        "Ref": "AWS::Region"
+                      }
+                    }
+                  ]
+                },
+                "mapPublicIpOnLaunch": true,
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-subnet-public-a"
+                  }
+                ]
+              }
+            }
+          },
+          "NAT1": {
+            "id": "NAT1",
+            "path": "vpc/NAT1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
+              "aws:cdk:cloudformation:props": {
+                "allocationId": {
+                  "Fn::GetAtt": [
+                    "EIP1",
+                    "AllocationId"
+                  ]
+                },
+                "subnetId": {
+                  "Ref": "PublicSubnet1"
+                }
+              }
+            }
+          },
+          "PrivateRouteTable1": {
+            "id": "PrivateRouteTable1",
+            "path": "vpc/PrivateRouteTable1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+              "aws:cdk:cloudformation:props": {
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-routetable-private1"
+                  }
+                ]
+              }
+            }
+          },
+          "PrivateRoute1": {
+            "id": "PrivateRoute1",
+            "path": "vpc/PrivateRoute1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+              "aws:cdk:cloudformation:props": {
+                "routeTableId": {
+                  "Ref": "PrivateRouteTable1"
+                },
+                "destinationCidrBlock": "0.0.0.0/0",
+                "natGatewayId": {
+                  "Ref": "NAT1"
+                }
+              }
+            }
+          },
+          "PrivateRouteAssociation1": {
+            "id": "PrivateRouteAssociation1",
+            "path": "vpc/PrivateRouteAssociation1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+              "aws:cdk:cloudformation:props": {
+                "routeTableId": {
+                  "Ref": "PrivateRouteTable1"
+                },
+                "subnetId": {
+                  "Ref": "PrivateSubnet1"
+                }
+              }
+            }
+          },
+          "PublicRouteTable": {
+            "id": "PublicRouteTable",
+            "path": "vpc/PublicRouteTable",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+              "aws:cdk:cloudformation:props": {
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-routetable-public"
+                  }
+                ]
+              }
+            }
+          },
+          "PublicDefaultRoute": {
+            "id": "PublicDefaultRoute",
+            "path": "vpc/PublicDefaultRoute",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+              "aws:cdk:cloudformation:props": {
+                "routeTableId": {
+                  "Ref": "PublicRouteTable"
+                },
+                "destinationCidrBlock": "0.0.0.0/0",
+                "gatewayId": {
+                  "Ref": "InternetGateway"
+                }
+              }
+            }
+          },
+          "PublicRouteAssociation1": {
+            "id": "PublicRouteAssociation1",
+            "path": "vpc/PublicRouteAssociation1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+              "aws:cdk:cloudformation:props": {
+                "routeTableId": {
+                  "Ref": "PublicRouteTable"
+                },
+                "subnetId": {
+                  "Ref": "PublicSubnet1"
+                }
+              }
+            }
+          },
+          "EIP2": {
+            "id": "EIP2",
+            "path": "vpc/EIP2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
+              "aws:cdk:cloudformation:props": {
+                "domain": "vpc"
+              }
+            }
+          },
+          "PrivateSubnet2": {
+            "id": "PrivateSubnet2",
+            "path": "vpc/PrivateSubnet2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+              "aws:cdk:cloudformation:props": {
+                "cidrBlock": "10.1.4.0/24",
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "availabilityZone": {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::GetAZs": {
+                        "Ref": "AWS::Region"
+                      }
+                    }
+                  ]
+                },
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-subnet-private-b"
+                  }
+                ]
+              }
+            }
+          },
+          "PublicSubnet2": {
+            "id": "PublicSubnet2",
+            "path": "vpc/PublicSubnet2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+              "aws:cdk:cloudformation:props": {
+                "cidrBlock": "10.1.2.0/24",
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "availabilityZone": {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::GetAZs": {
+                        "Ref": "AWS::Region"
+                      }
+                    }
+                  ]
+                },
+                "mapPublicIpOnLaunch": true,
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-subnet-public-b"
+                  }
+                ]
+              }
+            }
+          },
+          "NAT2": {
+            "id": "NAT2",
+            "path": "vpc/NAT2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
+              "aws:cdk:cloudformation:props": {
+                "allocationId": {
+                  "Fn::GetAtt": [
+                    "EIP2",
+                    "AllocationId"
+                  ]
+                },
+                "subnetId": {
+                  "Ref": "PublicSubnet2"
+                }
+              }
+            }
+          },
+          "PrivateRouteTable2": {
+            "id": "PrivateRouteTable2",
+            "path": "vpc/PrivateRouteTable2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+              "aws:cdk:cloudformation:props": {
+                "vpcId": {
+                  "Ref": "VPC"
+                },
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "edx-routetable-private2"
+                  }
+                ]
+              }
+            }
+          },
+          "PrivateRoute2": {
+            "id": "PrivateRoute2",
+            "path": "vpc/PrivateRoute2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+              "aws:cdk:cloudformation:props": {
+                "routeTableId": {
+                  "Ref": "PrivateRouteTable2"
+                },
+                "destinationCidrBlock": "0.0.0.0/0",
+                "natGatewayId": {
+                  "Ref": "NAT2"
+                }
+              }
+            }
+          },
+          "PrivateRouteAssociation2": {
+            "id": "PrivateRouteAssociation2",
+            "path": "vpc/PrivateRouteAssociation2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+              "aws:cdk:cloudformation:props": {
+                "routeTableId": {
+                  "Ref": "PrivateRouteTable2"
+                },
+                "subnetId": {
+                  "Ref": "PrivateSubnet2"
+                }
+              }
+            }
+          },
+          "PublicRouteAssociation2": {
+            "id": "PublicRouteAssociation2",
+            "path": "vpc/PublicRouteAssociation2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+              "aws:cdk:cloudformation:props": {
+                "routeTableId": {
+                  "Ref": "PublicRouteTable"
+                },
+                "subnetId": {
+                  "Ref": "PublicSubnet2"
+                }
+              }
+            }
+          },
+          "vpcoutput": {
+            "id": "vpcoutput",
+            "path": "vpc/vpcoutput"
+          },
+          "PublicSubnet1output": {
+            "id": "PublicSubnet1output",
+            "path": "vpc/PublicSubnet1output"
+          },
+          "PublicSubnet2output": {
+            "id": "PublicSubnet2output",
+            "path": "vpc/PublicSubnet2output"
+          },
+          "PrivateSubnet1output": {
+            "id": "PrivateSubnet1output",
+            "path": "vpc/PrivateSubnet1output"
+          },
+          "PrivateSubnet2output": {
+            "id": "PrivateSubnet2output",
+            "path": "vpc/PrivateSubnet2output"
+          },
+          "Private1az": {
+            "id": "Private1az",
+            "path": "vpc/Private1az"
+          },
+          "Private2az": {
+            "id": "Private2az",
+            "path": "vpc/Private2az"
+          }
+        }
+      },
+      "security": {
+        "id": "security",
+        "path": "security",
+        "children": {
+          "WebServerRole": {
+            "id": "WebServerRole",
+            "path": "security/WebServerRole",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+              "aws:cdk:cloudformation:props": {
+                "assumeRolePolicyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Principal": {
+                        "Service": [
+                          "ec2.amazonaws.com"
+                        ]
+                      },
+                      "Action": [
+                        "sts:AssumeRole"
+                      ]
+                    }
+                  ]
+                },
+                "managedPolicyArns": [
+                  "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+                  "arn:aws:iam::aws:policy/AmazonRekognitionReadOnlyAccess",
+                  "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
+                  "arn:aws:iam::aws:policy/AmazonPollyReadOnlyAccess",
+                  "arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess"
+                ],
+                "path": "/",
+                "policies": [
+                  {
+                    "policyName": "SystemsManagerParameters",
+                    "policyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": [
+                            "ssm:DescribeParameters"
+                          ],
+                          "Resource": "*"
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": [
+                            "ssm:GetParameters"
+                          ],
+                          "Resource": {
+                            "Fn::Sub": "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/edx-*"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "policyName": "LogRolePolicy",
+                    "policyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": [
+                            "logs:CreateLogGroup",
+                            "logs:CreateLogStream",
+                            "logs:PutLogEvents",
+                            "logs:DescribeLogStreams"
+                          ],
+                          "Resource": {
+                            "Fn::Sub": "arn:aws:logs::${AWS::Region}:*:*"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "roleName": "ec2-webserver-role"
+              }
+            }
+          },
+          "lambdasecuritygroup": {
+            "id": "lambdasecuritygroup",
+            "path": "security/lambdasecuritygroup",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+              "aws:cdk:cloudformation:props": {
+                "groupDescription": "HTTP traffic",
+                "groupName": "labels-lambda-sg",
+                "securityGroupEgress": [
+                  {
+                    "ipProtocol": "tcp",
+                    "fromPort": 0,
+                    "toPort": 65535,
+                    "cidrIp": "0.0.0.0/0"
+                  }
+                ],
+                "vpcId": {
+                  "Fn::ImportValue": "vpc"
+                }
+              }
+            }
+          },
+          "WebSecurityGroup": {
+            "id": "WebSecurityGroup",
+            "path": "security/WebSecurityGroup",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+              "aws:cdk:cloudformation:props": {
+                "groupDescription": "HTTP traffic",
+                "groupName": "web-server-sg",
+                "securityGroupEgress": [
+                  {
+                    "ipProtocol": "tcp",
+                    "fromPort": 0,
+                    "toPort": 65535,
+                    "cidrIp": "0.0.0.0/0"
+                  }
+                ],
+                "securityGroupIngress": [
+                  {
+                    "ipProtocol": "tcp",
+                    "fromPort": 80,
+                    "toPort": 80,
+                    "cidrIp": "0.0.0.0/0"
+                  }
+                ],
+                "vpcId": {
+                  "Fn::ImportValue": "vpc"
+                }
+              }
+            }
+          },
+          "DBSG": {
+            "id": "DBSG",
+            "path": "security/DBSG",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+              "aws:cdk:cloudformation:props": {
+                "groupDescription": "DB_traffic",
+                "groupName": "DB-Security-Group",
+                "securityGroupEgress": [
+                  {
+                    "ipProtocol": "tcp",
+                    "fromPort": 0,
+                    "toPort": 65535,
+                    "cidrIp": "0.0.0.0/0"
+                  }
+                ],
+                "securityGroupIngress": [
+                  {
+                    "ipProtocol": "tcp",
+                    "fromPort": 3306,
+                    "toPort": 3306,
+                    "cidrIp": "0.0.0.0/0"
+                  }
+                ],
+                "vpcId": {
+                  "Fn::ImportValue": "vpc"
+                }
+              }
+            }
+          },
+          "dbsg": {
+            "id": "dbsg",
+            "path": "security/dbsg"
+          },
+          "WebSecurityGroupoutput": {
+            "id": "WebSecurityGroupoutput",
+            "path": "security/WebSecurityGroupoutput"
+          },
+          "lambdasecuritygroup_output": {
+            "id": "lambdasecuritygroup_output",
+            "path": "security/lambdasecuritygroup_output"
+          }
+        }
+      },
+      "dbstack": {
+        "id": "dbstack",
+        "path": "dbstack",
+        "children": {
+          "DBPassword": {
+            "id": "DBPassword",
+            "path": "dbstack/DBPassword"
+          },
+          "dbsubnet": {
+            "id": "dbsubnet",
+            "path": "dbstack/dbsubnet",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::RDS::DBSubnetGroup",
+              "aws:cdk:cloudformation:props": {
+                "dbSubnetGroupDescription": "MyDBSubnetGroup",
+                "subnetIds": [
+                  {
+                    "Fn::ImportValue": "PrivateSubnet1"
+                  },
+                  {
+                    "Fn::ImportValue": "PrivateSubnet2"
+                  }
+                ]
+              }
+            }
+          },
+          "RDSCluster": {
+            "id": "RDSCluster",
+            "path": "dbstack/RDSCluster",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::RDS::DBCluster",
+              "aws:cdk:cloudformation:props": {
+                "engine": "aurora",
+                "databaseName": "Photos",
+                "dbClusterIdentifier": "edx-photos-db",
+                "engineMode": "serverless",
+                "masterUsername": "master",
+                "masterUserPassword": {
+                  "Ref": "DBPassword"
+                },
+                "scalingConfiguration": {
+                  "autoPause": true,
+                  "maxCapacity": 4,
+                  "minCapacity": 2
+                },
+                "vpcSecurityGroupIds": [
+                  {
+                    "Fn::ImportValue": "DBSG"
+                  }
+                ]
+              }
+            }
+          },
+          "dbendpoint": {
+            "id": "dbendpoint",
+            "path": "dbstack/dbendpoint"
+          },
+          "dbname": {
+            "id": "dbname",
+            "path": "dbstack/dbname"
+          },
+          "dbpassword": {
+            "id": "dbpassword",
+            "path": "dbstack/dbpassword"
+          }
+        }
+      },
+      "s3": {
+        "id": "s3",
+        "path": "s3",
+        "children": {
+          "cdkprojectbucket": {
+            "id": "cdkprojectbucket",
+            "path": "s3/cdkprojectbucket",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "s3/cdkprojectbucket/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "vtccdkbucket3"
+                  }
+                }
+              },
+              "Notifications": {
+                "id": "Notifications",
+                "path": "s3/cdkprojectbucket/Notifications"
+              }
+            }
+          },
+          "sourcebucket": {
+            "id": "sourcebucket",
+            "path": "s3/sourcebucket"
+          }
+        }
+      },
+      "web": {
+        "id": "web",
+        "path": "web",
+        "children": {
+          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
+            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "web/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter"
+          },
+          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118": {
+            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "web/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118"
+          },
+          "cfnlog": {
+            "id": "cfnlog",
+            "path": "web/cfnlog",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
+              "aws:cdk:cloudformation:props": {
+                "retentionInDays": 7
+              }
+            }
+          },
+          "Webserver1": {
+            "id": "Webserver1",
+            "path": "web/Webserver1",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Instance",
+              "aws:cdk:cloudformation:props": {
+                "availabilityZone": {
+                  "Fn::ImportValue": "PrivateSubnet1az"
+                },
+                "iamInstanceProfile": "",
+                "imageId": {
+                  "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+                },
+                "instanceType": "t3.micro",
+                "networkInterfaces": [
+                  {
+                    "associatePublicIpAddress": true,
+                    "deviceIndex": "0",
+                    "groupSet": [
+                      {
+                        "Fn::ImportValue": "WebSecurityGroup"
+                      }
+                    ],
+                    "subnetId": {
+                      "Fn::ImportValue": "PrivateSubnet1"
+                    }
+                  }
+                ],
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "Ex3WebServer"
+                  }
+                ]
+              }
+            }
+          },
+          "Webserver2": {
+            "id": "Webserver2",
+            "path": "web/Webserver2",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::EC2::Instance",
+              "aws:cdk:cloudformation:props": {
+                "availabilityZone": {
+                  "Fn::ImportValue": "PrivateSubnet2az"
+                },
+                "imageId": {
+                  "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+                },
+                "instanceType": "t3.micro",
+                "keyName": "####",
+                "networkInterfaces": [
+                  {
+                    "associatePublicIpAddress": true,
+                    "deviceIndex": "0",
+                    "groupSet": [
+                      {
+                        "Fn::ImportValue": "WebSecurityGroup"
+                      }
+                    ],
+                    "subnetId": {
+                      "Fn::ImportValue": "PrivateSubnet2"
+                    }
+                  }
+                ],
+                "tags": [
+                  {
+                    "key": "Name",
+                    "value": "Ex3WebServer"
+                  }
+                ]
+              }
+            }
+          },
+          "DefaultTargetGroup": {
+            "id": "DefaultTargetGroup",
+            "path": "web/DefaultTargetGroup",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+              "aws:cdk:cloudformation:props": {
+                "healthCheckEnabled": true,
+                "healthCheckIntervalSeconds": 15,
+                "healthCheckPath": "/",
+                "healthCheckProtocol": "HTTP",
+                "healthCheckTimeoutSeconds": 10,
+                "healthyThresholdCount": 2,
+                "matcher": {
+                  "httpCode": "200-299"
+                },
+                "port": 80,
+                "protocol": "HTTP",
+                "targetGroupAttributes": [
+                  {
+                    "key": "deregistration_delay.timeout_seconds",
+                    "value": "30"
+                  }
+                ],
+                "targets": [
+                  {
+                    "id": "Webserver1.ref",
+                    "port": 80
+                  },
+                  {
+                    "id": "Webserver2.ref",
+                    "port": 80
+                  }
+                ],
+                "vpcId": {
+                  "Fn::ImportValue": "vpc"
+                }
+              }
+            }
+          },
+          "HttpListener": {
+            "id": "HttpListener",
+            "path": "web/HttpListener",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
+              "aws:cdk:cloudformation:props": {
+                "defaultActions": [
+                  {
+                    "type": "forward",
+                    "targetGroupArn": {
+                      "Ref": "DefaultTargetGroup"
+                    }
+                  }
+                ],
+                "loadBalancerArn": {
+                  "Fn::ImportValue": "LoadBalancerArn"
+                },
+                "port": 80,
+                "protocol": "HTTP"
+              }
+            }
+          }
+        }
+      },
+      "cdn": {
+        "id": "cdn",
+        "path": "cdn",
+        "children": {
+          "Api": {
+            "id": "Api",
+            "path": "cdn/Api",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+              "aws:cdk:cloudformation:props": {
+                "binaryMediaTypes": [
+                  "*/*"
+                ],
+                "name": "WebProxyApi"
+              }
+            }
+          },
+          "WebpageCDN": {
+            "id": "WebpageCDN",
+            "path": "cdn/WebpageCDN",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::CloudFront::Distribution",
+              "aws:cdk:cloudformation:props": {
+                "distributionConfig": {
+                  "enabled": true
+                }
+              }
+            }
+          },
+          "LoadBalancer": {
+            "id": "LoadBalancer",
+            "path": "cdn/LoadBalancer",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+              "aws:cdk:cloudformation:props": {
+                "loadBalancerAttributes": [
+                  {
+                    "key": "idle_timeout.timeout_seconds",
+                    "value": "50"
+                  }
+                ],
+                "securityGroups": [
+                  {
+                    "Fn::ImportValue": "WebSecurityGroupoutput"
+                  }
+                ],
+                "subnets": [
+                  {
+                    "Fn::ImportValue": "PublicSubnet1output"
+                  },
+                  {
+                    "Fn::ImportValue": "PublicSubnet2output"
+                  }
+                ]
+              }
+            }
+          },
+          "CloudWatchRole": {
+            "id": "CloudWatchRole",
+            "path": "cdn/CloudWatchRole",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+              "aws:cdk:cloudformation:props": {
+                "assumeRolePolicyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": "apigateway.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                  }
+                },
+                "managedPolicyArns": [
+                  "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+                  "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess"
+                ],
+                "path": "/"
+              }
+            }
+          },
+          "Account": {
+            "id": "Account",
+            "path": "cdn/Account",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
+              "aws:cdk:cloudformation:props": {
+                "cloudWatchRoleArn": {
+                  "Fn::GetAtt": [
+                    "CloudWatchRole",
+                    "Arn"
+                  ]
+                }
+              }
+            }
+          },
+          "ApiResource": {
+            "id": "ApiResource",
+            "path": "cdn/ApiResource",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+              "aws:cdk:cloudformation:props": {
+                "parentId": {
+                  "Fn::GetAtt": [
+                    "Api",
+                    "RootResourceId"
+                  ]
+                },
+                "pathPart": "{proxy+}",
+                "restApiId": {
+                  "Ref": "Api"
+                }
+              }
+            }
+          },
+          "rootmethod": {
+            "id": "rootmethod",
+            "path": "cdn/rootmethod",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+              "aws:cdk:cloudformation:props": {
+                "httpMethod": "ANY",
+                "resourceId": {
+                  "Fn::GetAtt": [
+                    "Api",
+                    "RootResourceId"
+                  ]
+                },
+                "restApiId": {
+                  "Ref": "Api"
+                },
+                "integration": {
+                  "type": "HTTP_PROXY",
+                  "uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "http://",
+                        {
+                          "Fn::GetAtt": [
+                            "LoadBalancer",
+                            "DNSName"
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  "passthroughBehavior": "WHEN_NO_MATCH",
+                  "integrationResponses": [
+                    {
+                      "statusCode": "200"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "ProxyMehod": {
+            "id": "ProxyMehod",
+            "path": "cdn/ProxyMehod",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+              "aws:cdk:cloudformation:props": {
+                "httpMethod": "ANY",
+                "resourceId": {
+                  "Ref": "ApiResource"
+                },
+                "restApiId": {
+                  "Ref": "Api"
+                },
+                "integration": {
+                  "cacheKeyParameters": [
+                    "method.request.path.proxy"
+                  ],
+                  "requestParameters": {
+                    "integration.request.path.proxy": "method.request.path.prxy"
+                  },
+                  "integrationHttpMethod": "ANY",
+                  "type": "HTTP_PROXY",
+                  "uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "http://",
+                        {
+                          "Fn::GetAtt": [
+                            "LoadBalancer",
+                            "DNSName"
+                          ]
+                        },
+                        "/{proxy}"
+                      ]
+                    ]
+                  },
+                  "passthroughBehavior": "WHEN_NO_MATCH",
+                  "integrationResponses": [
+                    {
+                      "statusCode": "200"
+                    }
+                  ]
+                },
+                "requestParameters": {
+                  "method.request.path.proxy": true
+                }
+              }
+            }
+          },
+          "Deployment": {
+            "id": "Deployment",
+            "path": "cdn/Deployment",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+              "aws:cdk:cloudformation:props": {
+                "restApiId": {
+                  "Ref": "Api"
+                }
+              }
+            }
+          },
+          "ProdStage": {
+            "id": "ProdStage",
+            "path": "cdn/ProdStage",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+              "aws:cdk:cloudformation:props": {
+                "restApiId": {
+                  "Ref": "Api"
+                },
+                "deploymentId": {
+                  "Ref": "Deployment"
+                },
+                "description": "Prod Stage",
+                "stageName": "Prod",
+                "tracingEnabled": true
+              }
+            }
+          },
+          "alb_dns_name": {
+            "id": "alb_dns_name",
+            "path": "cdn/alb_dns_name"
+          },
+          "domain_name": {
+            "id": "domain_name",
+            "path": "cdn/domain_name"
+          },
+          "LoadBalancerArn": {
+            "id": "LoadBalancerArn",
+            "path": "cdn/LoadBalancerArn"
+          }
+        }
+      },
+      "cloud9": {
+        "id": "cloud9",
+        "path": "cloud9",
+        "children": {
+          "newcloud9": {
+            "id": "newcloud9",
+            "path": "cloud9/newcloud9",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Cloud9::EnvironmentEC2",
+              "aws:cdk:cloudformation:props": {
+                "instanceType": "t2.micro",
+                "automaticStopTimeMinutes": 30,
+                "description": "Building On AWS Cloud9",
+                "name": "BuildingOnAWS<property object at 0x7f9e3991f9a8>",
+                "ownerArn": {
+                  "Fn::ImportValue": "edXProjectUser"
+                },
+                "subnetId": {
+                  "Fn::ImportValue": "PrivateSubnet1output"
+                }
+              }
+            }
+          },
+          "LambdaExecutionRole": {
+            "id": "LambdaExecutionRole",
+            "path": "cloud9/LambdaExecutionRole",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+              "aws:cdk:cloudformation:props": {
+                "assumeRolePolicyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                  },
+                  "Path": "/",
+                  "Policies": {
+                    "PolicyName": "root",
+                    "PolicyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": [
+                            "logs:CreateLogGroup",
+                            "logs:CreateLogStream",
+                            "logs:PutLogEvents"
+                          ],
+                          "Resource": "arn:aws:logs:*:*:*"
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": "ec2:Describe*",
+                          "Resource": "*"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "role": {
+            "id": "role",
+            "path": "cloud9/role"
+          },
+          "lambdafunction": {
+            "id": "lambdafunction",
+            "path": "cloud9/lambdafunction",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "cloud9/lambdafunction/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cloud9/lambdafunction/Code/Stage"
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cloud9/lambdafunction/Code/AssetBucket"
+                  }
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud9/lambdafunction/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3BucketE9B849B5"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3VersionKeyAC33E112"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersbbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366S3VersionKeyAC33E112"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "handler": "index.handler",
+                    "role": {
+                      "Fn::GetAtt": [
+                        "LambdaExecutionRole",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs8.10",
+                    "timeout": 30
+                  }
+                }
+              }
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "cloud9/AssetParameters",
+            "children": {
+              "bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366": {
+                "id": "bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366",
+                "path": "cloud9/AssetParameters/bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "cloud9/AssetParameters/bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366/S3Bucket"
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "cloud9/AssetParameters/bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366/S3VersionKey"
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "cloud9/AssetParameters/bbd56b693723a1ecbc433012640755e8811ca4cabaf45a53c32867ddaa709366/ArtifactHash"
+                  }
+                }
+              }
+            }
+          },
+          "CustomResource": {
+            "id": "CustomResource",
+            "path": "cloud9/CustomResource"
+          },
+          "newcloud9output": {
+            "id": "newcloud9output",
+            "path": "cloud9/newcloud9output"
+          },
+          "LambdaExecutionRoleoutput": {
+            "id": "LambdaExecutionRoleoutput",
+            "path": "cloud9/LambdaExecutionRoleoutput"
+          }
+        }
+      },
+      "snssqs": {
+        "id": "snssqs",
+        "path": "snssqs",
+        "children": {
+          "labelslambda": {
+            "id": "labelslambda",
+            "path": "snssqs/labelslambda",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+              "aws:cdk:cloudformation:props": {
+                "code": {},
+                "handler": "lambda_function.lambda_handler",
+                "role": {
+                  "Fn::ImportValue": "LambdaExecutionRolearn"
+                },
+                "runtime": "python3.6",
+                "environment": {
+                  "variables": {
+                    "DATABASE_HOST": {
+                      "Fn::ImportValue": "dbendpoint"
+                    },
+                    "DATABASE_USER": "web_user",
+                    "DATABASE_PASSWORD": {
+                      "Fn::ImportValue": "dbpassword"
+                    },
+                    "DATABASE_DB_NAME": {
+                      "Fn::ImportValue": "DBname"
+                    }
+                  }
+                },
+                "timeout": 120,
+                "tracingConfig": {
+                  "mode": "Active"
+                },
+                "vpcConfig": {
+                  "securityGroupIds": [
+                    {
+                      "Fn::ImportValue": "lambdasecuritygroup"
+                    }
+                  ],
+                  "subnetIds": [
+                    {
+                      "Fn::ImportValue": "PrivateSubnet1output"
+                    },
+                    {
+                      "Fn::ImportValue": "PrivateSubnet2output"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "uploadsqs": {
+            "id": "uploadsqs",
+            "path": "snssqs/uploadsqs",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
+              "aws:cdk:cloudformation:props": {
+                "queueName": "uploads-queue"
+              }
+            }
+          },
+          "uploadsnstopic": {
+            "id": "uploadsnstopic",
+            "path": "snssqs/uploadsnstopic",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::SNS::Topic",
+              "aws:cdk:cloudformation:props": {
+                "displayName": "uploads-topic",
+                "subscription": [
+                  {
+                    "endpoint": {
+                      "Fn::GetAtt": [
+                        "uploadsqs",
+                        "Arn"
+                      ]
+                    },
+                    "protocol": "sqs"
+                  },
+                  {
+                    "endpoint": {
+                      "Fn::GetAtt": [
+                        "labelslambda",
+                        "Arn"
+                      ]
+                    },
+                    "protocol": "lambda"
+                  }
+                ]
+              }
+            }
+          },
+          "images3bucket": {
+            "id": "images3bucket",
+            "path": "snssqs/images3bucket",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+              "aws:cdk:cloudformation:props": {
+                "bucketName": "imagebucketsns${AWS::AccountId}",
+                "notificationConfiguration": {}
+              }
+            }
+          },
+          "images3bucketpermission": {
+            "id": "images3bucketpermission",
+            "path": "snssqs/images3bucketpermission",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+              "aws:cdk:cloudformation:props": {
+                "action": "lambda:InvokeFunction",
+                "functionName": {
+                  "Fn::GetAtt": [
+                    "labelslambda",
+                    "Arn"
+                  ]
+                },
+                "principal": "sns.amazonaws.com",
+                "sourceArn": {
+                  "Ref": "uploadsnstopic"
+                }
+              }
+            }
+          },
+          "uploadtopicpolicy": {
+            "id": "uploadtopicpolicy",
+            "path": "snssqs/uploadtopicpolicy",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::SNS::TopicPolicy",
+              "aws:cdk:cloudformation:props": {
+                "policyDocument": {
+                  "Version": "2012-10-17",
+                  "Id": "QueuePolicy",
+                  "Statement": [
+                    {
+                      "Sid": "Allow-S3-Publish",
+                      "Effect": "Allow",
+                      "Principal": [
+                        {
+                          "AWS": "*"
+                        }
+                      ],
+                      "Action": "SNS:Publish",
+                      "Resource": {
+                        "Ref": "uploadsnstopic"
+                      },
+                      "Condition": {
+                        "ArnLike": {
+                          "aws:SourceArn": [
+                            {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:aws:s3:::imagebucketsns",
+                                  {
+                                    "Ref": "AWS::AccountId"
+                                  }
+                                ]
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                "topics": [
+                  {
+                    "Ref": "uploadsnstopic"
+                  }
+                ]
+              }
+            }
+          },
+          "queuepolicy": {
+            "id": "queuepolicy",
+            "path": "snssqs/queuepolicy",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::SQS::QueuePolicy",
+              "aws:cdk:cloudformation:props": {
+                "policyDocument": {
+                  "Version": "2012-10-17",
+                  "Id": "QueuePolicy",
+                  "Statement": [
+                    {
+                      "Sid": "Allow-SendMessage-To-Queues-From-SNS-Topic",
+                      "Effect": "Allow",
+                      "Principal": [
+                        {
+                          "AWS": "*"
+                        }
+                      ],
+                      "Action": "SQS:SendMessage",
+                      "Resource": "*",
+                      "Condition": {
+                        "ArnEquals": {
+                          "aws:SourceArn": {
+                            "Ref": "uploadsnstopic"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "queues": [
+                  {
+                    "Ref": "uploadsqs"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "cognito": {
+        "id": "cognito",
+        "path": "cognito",
+        "children": {
+          "SourceBucket": {
+            "id": "SourceBucket",
+            "path": "cognito/SourceBucket"
+          },
+          "LogoutURL": {
+            "id": "LogoutURL",
+            "path": "cognito/LogoutURL"
+          },
+          "CallbackURL": {
+            "id": "CallbackURL",
+            "path": "cognito/CallbackURL"
+          },
+          "AppDomain": {
+            "id": "AppDomain",
+            "path": "cognito/AppDomain"
+          },
+          "CognitoSNSPolicy": {
+            "id": "CognitoSNSPolicy",
+            "path": "cognito/CognitoSNSPolicy",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::ManagedPolicy",
+              "aws:cdk:cloudformation:props": {
+                "policyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": {
+                    "Effect": "Allow",
+                    "Action": [
+                      "sns:publish"
+                    ],
+                    "Resource": "*"
+                  }
+                },
+                "description": "Managed policy to allow Amazon Cognito to access SNS"
+              }
+            }
+          },
+          "SNSRole": {
+            "id": "SNSRole",
+            "path": "cognito/SNSRole",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+              "aws:cdk:cloudformation:props": {
+                "assumeRolePolicyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Action": [
+                        "sts:AssumeRole"
+                      ],
+                      "Principal": {
+                        "Service": [
+                          "cognito-idp.amazonaws.com"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "managedPolicyArns": [
+                  {
+                    "Ref": "CognitoSNSPolicy"
+                  }
+                ],
+                "roleName": "SNSRole"
+              }
+            }
+          },
+          "UserPool": {
+            "id": "UserPool",
+            "path": "cognito/UserPool",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Cognito::UserPool",
+              "aws:cdk:cloudformation:props": {
+                "aliasAttributes": [
+                  "email",
+                  "phone_number"
+                ],
+                "autoVerifiedAttributes": [
+                  "email"
+                ],
+                "emailVerificationMessage": "Hi, Your verification code is <br/>{####}\n",
+                "emailVerificationSubject": "EDX Email Verification",
+                "mfaConfiguration": "OPTIONAL",
+                "policies": {
+                  "passwordPolicy": {
+                    "minimumLength": 8,
+                    "requireLowercase": true,
+                    "requireNumbers": true,
+                    "requireSymbols": true,
+                    "requireUppercase": true
+                  }
+                },
+                "schema": [
+                  {
+                    "attributeDataType": "String",
+                    "mutable": false,
+                    "name": "nickname",
+                    "required": true
+                  },
+                  {
+                    "attributeDataType": "String",
+                    "mutable": false,
+                    "name": "email",
+                    "required": true
+                  },
+                  {
+                    "attributeDataType": "String",
+                    "mutable": false,
+                    "name": "phone_number",
+                    "required": true
+                  }
+                ],
+                "smsConfiguration": {
+                  "externalId": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        {
+                          "Ref": "AWS::StackName"
+                        },
+                        "-external"
+                      ]
+                    ]
+                  },
+                  "snsCallerArn": {
+                    "Fn::GetAtt": [
+                      "SNSRole",
+                      "Arn"
+                    ]
+                  }
+                },
+                "userPoolName": "photos-pool"
+              }
+            }
+          },
+          "UserPoolClient": {
+            "id": "UserPoolClient",
+            "path": "cognito/UserPoolClient",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Cognito::UserPoolClient",
+              "aws:cdk:cloudformation:props": {
+                "userPoolId": {
+                  "Ref": "UserPool"
+                },
+                "clientName": "WebsiteClient",
+                "generateSecret": true
+              }
+            }
+          },
+          "CustomResourceRole": {
+            "id": "CustomResourceRole",
+            "path": "cognito/CustomResourceRole",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+              "aws:cdk:cloudformation:props": {
+                "assumeRolePolicyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Principal": {
+                        "Service": [
+                          "lambda.amazonaws.com"
+                        ]
+                      },
+                      "Action": [
+                        "sts:AssumeRole"
+                      ]
+                    }
+                  ]
+                },
+                "policies": [
+                  {
+                    "policyName": "writeCloudWatchLogs",
+                    "policyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": "logs:CreateLogGroup",
+                          "Resource": "arn:aws:logs:*:*:*"
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": "logs:CreateLogStream",
+                          "Resource": "arn:aws:logs:*:*:*"
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": "logs:PutLogEvents",
+                          "Resource": "arn:aws:logs:*:*:*"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "policyName": "updateUserPoolClient",
+                    "policyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": "cognito-idp:UpdateUserPoolClient",
+                          "Resource": "arn:aws:cognito-idp:*:*:userpool/*"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "policyName": "manageUserPoolDomain",
+                    "policyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": "cognito-idp:CreateUserPoolDomain",
+                          "Resource": "arn:aws:cognito-idp:*:*:userpool/*"
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": "cognito-idp:DeleteUserPoolDomain",
+                          "Resource": "arn:aws:cognito-idp:*:*:userpool/*"
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": "cognito-idp:DescribeUserPoolDomain",
+                          "Resource": "*"
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": "cognito-idp:DescribeUserPoolClient",
+                          "Resource": "*"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "policyName": "invokeLambdaFunction",
+                    "policyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": "lambda:InvokeFunction",
+                          "Resource": "arn:aws:lambda:*:*:function:*"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "roleName": "cognito-resource-role"
+              }
+            }
+          },
+          "CustomResourceRoleiam": {
+            "id": "CustomResourceRoleiam",
+            "path": "cognito/CustomResourceRoleiam"
+          },
+          "CognitoUserPoolClientClientSettingsLambda": {
+            "id": "CognitoUserPoolClientClientSettingsLambda",
+            "path": "cognito/CognitoUserPoolClientClientSettingsLambda",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "cognito/CognitoUserPoolClientClientSettingsLambda/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cognito/CognitoUserPoolClientClientSettingsLambda/Code/Stage"
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cognito/CognitoUserPoolClientClientSettingsLambda/Code/AssetBucket"
+                  }
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cognito/CognitoUserPoolClientClientSettingsLambda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3Bucket1A02CCD6"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3VersionKeyD180C7BE"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197S3VersionKeyD180C7BE"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "handler": "cognitouserpool.async",
+                    "role": {
+                      "Fn::GetAtt": [
+                        "CustomResourceRole",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs8.10"
+                  }
+                }
+              }
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "cognito/AssetParameters",
+            "children": {
+              "8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197": {
+                "id": "8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197",
+                "path": "cognito/AssetParameters/8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "cognito/AssetParameters/8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197/S3Bucket"
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "cognito/AssetParameters/8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197/S3VersionKey"
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "cognito/AssetParameters/8ef2306b054944809b91e42b4b7ea5926f8a10f356a69217d4e95725f048b197/ArtifactHash"
+                  }
+                }
+              }
+            }
+          },
+          "CognitoUserPoolClientClientSettings": {
+            "id": "CognitoUserPoolClientClientSettings",
+            "path": "cognito/CognitoUserPoolClientClientSettings",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "cognito/CognitoUserPoolClientClientSettings/Default"
+              }
+            }
+          },
+          "CognitoIdPool": {
+            "id": "CognitoIdPool",
+            "path": "cognito/CognitoIdPool",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Cognito::IdentityPool",
+              "aws:cdk:cloudformation:props": {
+                "allowUnauthenticatedIdentities": false,
+                "cognitoIdentityProviders": [
+                  {
+                    "clientId": {
+                      "Ref": "UserPoolClient"
+                    },
+                    "providerName": {
+                      "Fn::GetAtt": [
+                        "UserPool",
+                        "ProviderName"
+                      ]
+                    }
+                  }
+                ],
+                "identityPoolName": "edxcognitoidpool"
+              }
+            }
+          },
+          "CognitoUserPoolIdOutput": {
+            "id": "CognitoUserPoolIdOutput",
+            "path": "cognito/CognitoUserPoolIdOutput"
+          },
+          "CognitoUserPoolProviderURLOutput": {
+            "id": "CognitoUserPoolProviderURLOutput",
+            "path": "cognito/CognitoUserPoolProviderURLOutput"
+          },
+          "CognitoUserPoolArnOutput": {
+            "id": "CognitoUserPoolArnOutput",
+            "path": "cognito/CognitoUserPoolArnOutput"
+          },
+          "CognitoUserPoolClientIdOutput": {
+            "id": "CognitoUserPoolClientIdOutput",
+            "path": "cognito/CognitoUserPoolClientIdOutput"
+          },
+          "ClientSecretOutput": {
+            "id": "ClientSecretOutput",
+            "path": "cognito/ClientSecretOutput"
+          }
+        }
+      }
+    }
+  }
+}
